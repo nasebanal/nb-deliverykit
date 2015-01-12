@@ -16,8 +16,8 @@ Step.2) Download Dockerfile and Chef recipe.
 
 Step.3) Create docker image.
 
- $ sudo docker build -t <Docker Image Name> .
+ $ sudo docker build -t \<Docker Image Nam\> .
 
 Step.4) Launch docker image.
 
- $ sudo docker run -it --name <Docker Container Name> <Docker Image Name> /bin/bash
+ $ sudo docker run -it --name \<Docker Container Name\> \<Docker Image Name\> /bin/bash
