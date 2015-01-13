@@ -4,6 +4,7 @@
 		"recipe[tar]",
 		"recipe[openjdk]",
 		"recipe[httpd]",
+		"recipe[mysql-server]",
 		"recipe[subversion]",
 		"recipe[maven]",
 		"recipe[jenkins]"
