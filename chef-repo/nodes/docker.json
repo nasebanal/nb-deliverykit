@@ -3,6 +3,7 @@
 		"recipe[user]",
 		"recipe[tar]",
 		"recipe[openjdk]",
+		"recipe[subversion]",
 		"recipe[maven]",
 		"recipe[jenkins]"
 	]
