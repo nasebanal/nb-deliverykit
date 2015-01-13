@@ -1,9 +1,15 @@
 Open Source Delivery Kit
 
-<Prerequisite>
--Install Docker.
+[Component]
+-Cent OS 6.6
+-tar 1.23
+-OpenJDK 1.7.0
+-Maven 1.25
 
-<How to Use>
+[Prerequisite]
+-Install Docker
+
+[How to Use]
 
 Step.1) Download docker image for centos 6.6.
 

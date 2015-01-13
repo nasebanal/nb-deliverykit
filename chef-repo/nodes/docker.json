@@ -1,7 +1,8 @@
 {
 	"run_list" : [ 
-		"recipe[openjdk]",
+		"recipe[user]",
 		"recipe[tar]",
+		"recipe[openjdk]",
 		"recipe[maven]"
 	]
 }
