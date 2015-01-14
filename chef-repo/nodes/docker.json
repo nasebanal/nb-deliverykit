@@ -5,6 +5,7 @@
 		"recipe[tar]",
 		"recipe[openjdk]",
 		"recipe[rvm]",
+		"recipe[openssh-server]",
 		"recipe[httpd]",
 		"recipe[mysql-server]",
 		"recipe[subversion]",

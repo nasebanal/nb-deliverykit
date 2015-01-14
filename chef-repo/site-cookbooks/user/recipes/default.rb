@@ -22,6 +22,13 @@ user 'osdk_admin' do
 	group	'osdk_admin'
 	home	'/home/osdk_admin'
 	shell	'/bin/bash'
-	password	'osdk_admin'
+	password	'$1$Esa8qk9P$g5FdY67z4YwgHQ5GfY8t/1'
 	action	:create
+end
+
+## Create bash profile
+
+template '/home/osdk_admin/.bash_profile' do
+	source '.bash_profile.erb'
+	mode '0644'
 end
