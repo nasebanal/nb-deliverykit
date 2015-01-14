@@ -17,6 +17,11 @@ package "mysql-devel" do
 	version "5.1.73"
 end
 
+template "/etc/my.cnf" do
+	source "my.cnf.erb"
+	mode "0644"
+end
+
 service "mysqld" do
 	action :start
 end

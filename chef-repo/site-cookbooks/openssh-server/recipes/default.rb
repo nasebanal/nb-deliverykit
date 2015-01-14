@@ -12,6 +12,11 @@ package "openssh-server" do
 	version "5.3"
 end
 
+package "openssh-clients" do
+	action :upgrade
+	version "5.3"
+end
+
 service "sshd" do
 	action :start
 end

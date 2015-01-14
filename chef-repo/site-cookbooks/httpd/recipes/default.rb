@@ -17,6 +17,11 @@ package "httpd-devel" do
 	version "2.2.15"
 end
 
+template "/etc/httpd/conf/httpd.conf" do
+	source "httpd.conf.erb"
+	mode "0644"
+end
+
 service "httpd" do
 	action :start
 end
