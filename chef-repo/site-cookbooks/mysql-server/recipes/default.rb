@@ -11,3 +11,12 @@ package "mysql-server" do
 	action :upgrade
 	version "5.1.73"
 end
+
+package "mysql-devel" do
+	action :upgrade
+	version "5.1.73"
+end
+
+service "mysqld" do
+	action :start
+end
