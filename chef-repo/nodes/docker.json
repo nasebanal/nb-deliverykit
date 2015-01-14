@@ -1,6 +1,7 @@
 {
 	"run_list" : [ 
 		"recipe[user]",
+		"recipe[which]",
 		"recipe[tar]",
 		"recipe[openjdk]",
 		"recipe[httpd]",

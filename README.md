@@ -2,8 +2,10 @@ Open Source Delivery Kit
 
 [Component]
 -Cent OS 6.6
+-which 2.19
 -tar 1.23
 -OpenJDK 1.7.0
+-RVM 1.26.9
 -Apache Web Server 2.2.15
 -MySQL Server 5.1.73
 -Subversion 1.6.11
