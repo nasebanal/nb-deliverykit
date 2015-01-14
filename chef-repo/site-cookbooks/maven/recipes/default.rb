@@ -21,6 +21,8 @@ bash 'install maven' do
 	cwd node['maven']['working_dir']
 	code <<-EOH
 tar xzvf #{node['maven']['arch_file']}
+mv #{node['maven']['dir_name']} #{node['maven']['install_dir']}
+ln -s #{node['maven']['install_dir']} #{node['maven']['target_dir']}
 EOH
 end
 

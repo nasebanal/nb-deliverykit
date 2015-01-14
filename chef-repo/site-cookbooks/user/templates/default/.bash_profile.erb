@@ -8,5 +8,16 @@ fi
 # User specific environment and startup programs
 
 PATH=$PATH:$HOME/bin
-
 export PATH
+
+## for Java
+export JAVA_HOME=/usr/lib/jvm/java-1.7.0
+export CLASS_PATH=$JAVA_HOME/lib
+export PATH=$JAVA_HOME/bin:$PATH
+
+## for Maven
+export M2_HOME=/opt/maven
+export PATH=$M2_HOME/bin:$PATH
+
+## for RVM
+source /etc/profile.d/rvm.sh
