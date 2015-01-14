@@ -6,7 +6,8 @@ Open Source Delivery Kit
 -tar 1.23
 -OpenJDK 1.7.0
 -RVM 1.26.9
--Apache Web Server 2.2.15
+-Ruby 2.1.3
+-Apache Web Server(httpd / httpd-devel) 2.2.15
 -MySQL Server 5.1.73
 -Subversion 1.6.11
 -Maven 1.25
