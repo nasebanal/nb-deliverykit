@@ -2,6 +2,7 @@ Open Source Delivery Kit
 
 [Component]
 -Cent OS 6.6
+-yum 3.5.2
 -which 2.19
 -tar 1.23
 -OpenJDK 1.7.0

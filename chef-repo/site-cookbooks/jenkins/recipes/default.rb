@@ -9,17 +9,23 @@
 
 ## Add repository
 
-remote_file node['jenkins']['repo'] do
-	source node['jenkins']['repo_url']
+yum_repository 'jenkins.repo' do
+	baseurl node['jenkins']['repo_url']
+	gpgkey node['jenkins']['key_url']
+	action :create
 end
 
-bash 'import jenkins repo' do
-	code <<-EOH
-rpm --import #{node['jenkins']['key_url']}
-EOH
-end
+
+## Install Jenkins
 
 package "jenkins" do
 	action :upgrade
 	version "1.596"
+end
+
+
+## Start Jenkins
+
+service 'jenkins' do
+	action [ :enable, :start ]
 end
