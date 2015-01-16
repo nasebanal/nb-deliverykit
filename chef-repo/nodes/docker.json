@@ -1,5 +1,7 @@
 {
 	"run_list" : [ 
+		"yum",
+		"recipe[base]",
 		"recipe[user]",
 		"recipe[which]",
 		"recipe[tar]",

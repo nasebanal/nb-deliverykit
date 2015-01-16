@@ -7,6 +7,7 @@ Open Source Delivery Kit
 -OpenJDK 1.7.0
 -RVM 1.26.9
 -Ruby 2.1.3
+-Berkshelf 3.2.3
 -OpenSSH Server (sshd) 5.3
 -Apache Web Server (httpd / httpd-devel) 2.2.15
 -MySQL Server (mysql-server / mysql-devel) 5.1.73
