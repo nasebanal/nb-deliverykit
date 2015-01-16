@@ -12,6 +12,7 @@
 		"recipe[mysql-server]",
 		"recipe[subversion]",
 		"recipe[maven]",
+		"recipe[redmine]",
 		"recipe[jenkins]"
 	]
 }
