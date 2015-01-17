@@ -27,3 +27,10 @@ group "rvm" do
 	members "osdk_admin"
 	append true
 end
+
+## Install bundler
+
+gem_package 'bundler' do
+    action :upgrade
+    version "1.7.12"
+end
