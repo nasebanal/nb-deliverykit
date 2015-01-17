@@ -7,3 +7,29 @@
 # All rights reserved - Do Not Redistribute
 #
 
+## Ceate work directory
+
+directory node['redmine']['working_dir'] do
+	action :create
+end
+
+
+## Install Redmine
+
+bash 'install redmine' do
+	action :nothing
+	cwd node['redmine']['working_dir']
+	code <<-EOH
+tar xzvf #{node['redmine']['arch_file']}
+mv #{node['redmine']['dir_name']} #{node['redmine']['install_dir']}
+ln -s #{node['redmine']['install_dir']} #{node['redmine']['target_dir']}
+EOH
+end
+
+
+## Download tarball
+
+remote_file ::File.join(node['redmine']['working_dir'], node['redmine']['arch_file']) do
+    source node['redmine']['site_url'] + node['redmine']['arch_file']
+    notifies :run, 'bash[install redmine]', :immediately
+end
