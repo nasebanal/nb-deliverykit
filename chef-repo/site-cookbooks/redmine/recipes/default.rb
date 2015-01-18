@@ -33,3 +33,11 @@ remote_file ::File.join(node['redmine']['working_dir'], node['redmine']['arch_fi
     source node['redmine']['site_url'] + node['redmine']['arch_file']
     notifies :run, 'bash[install redmine]', :immediately
 end
+
+
+## Copy database.yml
+
+template "#{node['redmine']['db_yml_path']}" do
+	source "#{node['redmine']['db_yml']}"
+	mode "0644"
+end

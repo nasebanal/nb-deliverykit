@@ -15,7 +15,7 @@ Open Source Delivery Kit
 -MySQL Server (mysql-server / mysql-devel) 5.1.73
 -Subversion 1.6.11
 -Maven 1.25
--Redmine
+-Redmine 2.5.0
 -Jenkins 1.596
 
 [Prerequisite]

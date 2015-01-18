@@ -7,3 +7,8 @@ default['redmine']['dir_name'] = 'redmine-2.5.0'
 default['redmine']['working_dir'] = ::File.join(Chef::Config[:file_cache_path], 'maven')
 default['redmine']['install_dir'] = '/opt/redmine-2.5.0'
 default['redmine']['target_dir'] = '/opt/redmine'
+default['redmine']['config_dir'] = ::File.join(node['redmine']['target_dir'],'config')
+
+## for file path
+default['redmine']['db_yml'] = 'database.yml'
+default['redmine']['db_yml_path'] = ::File.join(node['redmine']['config_dir'],node['redmine']['db_yml'])
