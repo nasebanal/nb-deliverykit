@@ -41,3 +41,17 @@ template "#{node['redmine']['db_yml_path']}" do
 	source "#{node['redmine']['db_yml']}"
 	mode "0644"
 end
+
+
+## Install Ruby gems
+
+bash 'install gems' do
+    action :run
+    cwd node['redmine']['target_dir']
+    code <<-EOH
+bundle install
+bundle exec rake generate_secret_token
+RAILS_ENV=production bundle exec rake db:migrate
+gem install passenger --no-rdoc --no-ri
+EOH
+end
