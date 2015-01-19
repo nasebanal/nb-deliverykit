@@ -7,6 +7,15 @@
 # All rights reserved - Do Not Redistribute
 #
 
+
+## Install libcurl
+
+package 'libcurl-devel' do
+    action :upgrade
+    version "7.19.7"
+end
+
+
 ## Ceate work directory
 
 directory node['redmine']['working_dir'] do
@@ -43,6 +52,14 @@ template "#{node['redmine']['db_yml_path']}" do
 end
 
 
+## Copy passenger parameter file
+
+template "#{node['redmine']['passenger_params_path']}" do
+	source "#{node['redmine']['passenger_params']}"
+	mode "0644"
+end
+
+
 ## Install Ruby gems
 
 bash 'install gems' do
@@ -53,5 +70,7 @@ bundle install
 bundle exec rake generate_secret_token
 RAILS_ENV=production bundle exec rake db:migrate
 gem install passenger --no-rdoc --no-ri
+passenger-install-apache2-module < #{node['redmine']['passenger_params_path']}
 EOH
 end
+
