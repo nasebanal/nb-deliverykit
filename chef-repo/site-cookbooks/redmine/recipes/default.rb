@@ -8,6 +8,30 @@
 #
 
 
+## Install Image Magick
+
+package "ImageMagick" do
+	action :upgrade
+	version "6.5.4.7"
+end
+
+
+## Install Image Magick devel
+
+package "ImageMagick-devel" do
+	action :upgrade
+	version "6.5.4.7"
+end
+
+
+## Install ipa pgothic fonts
+
+package "ipa-pgothic-fonts" do
+	action :upgrade
+	version "003.02"
+end
+
+
 ## Install libcurl
 
 package 'libcurl-devel' do
