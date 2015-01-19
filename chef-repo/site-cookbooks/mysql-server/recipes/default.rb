@@ -35,23 +35,43 @@ template "/etc/my.cnf" do
 	mode "0644"
 end
 
-## Copy init.sql
 
-template "#{node['mysql']['init_sql_path']}" do
-	source "#{node['mysql']['init_sql']}"
+## Copy init_db.sh
+
+template node['mysql']['init_sh_path'] do
+        source node['mysql']['init_sh']
+        mode "0755"
+end
+
+
+## Copy drop_db.sql
+
+template node['mysql']['drop_sql_path'] do
+	source node['mysql']['drop_sql']
 	mode "0644"
 end
+
+
+## Copy create_db.sql
+
+template node['mysql']['create_sql_path'] do
+    source node['mysql']['create_sql']
+    mode "0644"
+end
+
+
+## Start service
 
 service "mysqld" do
 	action :start
 end
 
-## 
+
+## Initialize Database
 
 bash "init db" do
 	action :run
 	code <<-EOH
-mysqladmin -u root password '#{node['mysql']['root_password']}'
-mysql -uroot -p#{node['mysql']['root_password']} < #{node['mysql']['init_sql_path']}
+#{node['mysql']['init_sh_path']} #{node['mysql']['root_password']} #{node['mysql']['drop_sql_path']} #{node['mysql']['create_sql_path']}
 EOH
 end
