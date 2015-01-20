@@ -42,7 +42,12 @@ end
 
 ## Install bundler
 
-gem_package 'bundler' do
-    action :upgrade
-    version "1.7.12"
+bash 'install bundler' do
+	user 'osdk_admin'
+	action :run
+	cwd node['rvm']['working_dir']
+	code <<-EOH
+source /etc/profile.d/rvm.sh
+gem install bundler -v 1.7.12
+EOH
 end

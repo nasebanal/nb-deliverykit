@@ -63,7 +63,7 @@ end
 ## Start service
 
 service "mysqld" do
-	action :start
+	action [ :enable, :start ]
 end
 
 
