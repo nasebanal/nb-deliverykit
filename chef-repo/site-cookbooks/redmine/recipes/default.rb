@@ -116,6 +116,25 @@ link "/var/www/html/redmine" do
 end
 
 
+## Copy init redmine sql
+
+#template node['redmine']['init_redmine_path'] do
+#	source node['redmine']['init_redmine']
+#	mode '0666'
+#end
+
+
+## Import redmine data
+
+#bash 'import redmine' do
+#	action :run
+#	cwd node['redmine']['working_dir']
+#	code <<-EOH
+#mysql -uroot --password='osdk_admin' < #{node['redmine']['init_redmine_path']}
+#EOH
+#end
+
+
 ## Copy passenger.conf
 
 template node['redmine']['passenger_conf_path'] do

@@ -17,3 +17,5 @@ default['redmine']['passenger_params'] = 'passenger_params.txt'
 default['redmine']['passenger_params_path'] = ::File.join(node['redmine']['working_dir'], node['redmine']['passenger_params'])
 default['redmine']['passenger_conf'] = 'passenger.conf'
 default['redmine']['passenger_conf_path'] = ::File.join(node['redmine']['httpdconf_dir'], node['redmine']['passenger_conf'])
+default['redmine']['init_redmine'] = 'init_redmine.sql'
+default['redmine']['init_redmine_path'] = ::File.join(node['redmine']['working_dir'], node['redmine']['init_redmine'])
