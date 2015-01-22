@@ -1171,7 +1171,7 @@ CREATE TABLE `enumerations` (
   PRIMARY KEY (`id`),
   KEY `index_enumerations_on_project_id` (`project_id`),
   KEY `index_enumerations_on_id_and_type` (`id`,`type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1180,6 +1180,7 @@ CREATE TABLE `enumerations` (
 
 LOCK TABLES `enumerations` WRITE;
 /*!40000 ALTER TABLE `enumerations` DISABLE KEYS */;
+INSERT INTO `enumerations` VALUES (1,'Normal',1,1,'IssuePriority',1,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `enumerations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1280,7 +1281,7 @@ CREATE TABLE `issue_statuses` (
   KEY `index_issue_statuses_on_position` (`position`),
   KEY `index_issue_statuses_on_is_closed` (`is_closed`),
   KEY `index_issue_statuses_on_is_default` (`is_default`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1289,6 +1290,7 @@ CREATE TABLE `issue_statuses` (
 
 LOCK TABLES `issue_statuses` WRITE;
 /*!40000 ALTER TABLE `issue_statuses` DISABLE KEYS */;
+INSERT INTO `issue_statuses` VALUES (1,'Opened',0,1,1,NULL),(2,'Closed',1,0,2,NULL);
 /*!40000 ALTER TABLE `issue_statuses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1422,7 +1424,7 @@ CREATE TABLE `member_roles` (
   PRIMARY KEY (`id`),
   KEY `index_member_roles_on_member_id` (`member_id`),
   KEY `index_member_roles_on_role_id` (`role_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1431,6 +1433,7 @@ CREATE TABLE `member_roles` (
 
 LOCK TABLES `member_roles` WRITE;
 /*!40000 ALTER TABLE `member_roles` DISABLE KEYS */;
+INSERT INTO `member_roles` VALUES (1,1,3,NULL);
 /*!40000 ALTER TABLE `member_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1451,7 +1454,7 @@ CREATE TABLE `members` (
   UNIQUE KEY `index_members_on_user_id_and_project_id` (`user_id`,`project_id`),
   KEY `index_members_on_user_id` (`user_id`),
   KEY `index_members_on_project_id` (`project_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1460,6 +1463,7 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
+INSERT INTO `members` VALUES (1,1,1,'2015-01-22 00:52:37',0);
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1619,7 +1623,7 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (1,'sample','','',1,NULL,'2015-01-21 01:34:41','2015-01-21 01:34:41','sample',1,1,2,1);
+INSERT INTO `projects` VALUES (1,'sample','','',1,NULL,'2015-01-22 00:48:13','2015-01-22 00:48:13','sample',1,1,2,1);
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1644,6 +1648,7 @@ CREATE TABLE `projects_trackers` (
 
 LOCK TABLES `projects_trackers` WRITE;
 /*!40000 ALTER TABLE `projects_trackers` DISABLE KEYS */;
+INSERT INTO `projects_trackers` VALUES (1,1);
 /*!40000 ALTER TABLE `projects_trackers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1736,7 +1741,7 @@ CREATE TABLE `repositories` (
 
 LOCK TABLES `repositories` WRITE;
 /*!40000 ALTER TABLE `repositories` DISABLE KEYS */;
-INSERT INTO `repositories` VALUES (1,1,'http://localhost/repos/sample','','','http://localhost/repos/sample','Repository::Subversion',NULL,NULL,'--- \n...\n','',1,'2015-01-21 01:34:56');
+INSERT INTO `repositories` VALUES (1,1,'http://localhost/repos/sample','','','','Repository::Subversion',NULL,NULL,NULL,'',1,'2015-01-22 00:52:01');
 /*!40000 ALTER TABLE `repositories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1756,7 +1761,7 @@ CREATE TABLE `roles` (
   `permissions` text,
   `issues_visibility` varchar(30) NOT NULL DEFAULT 'default',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1765,7 +1770,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'Non member',1,1,1,NULL,'default'),(2,'Anonymous',2,1,2,NULL,'default');
+INSERT INTO `roles` VALUES (1,'Non member',1,1,1,NULL,'default'),(2,'Anonymous',2,1,2,NULL,'default'),(3,'Admin',3,1,0,'---\n- :add_project\n- :edit_project\n- :close_project\n- :select_project_modules\n- :manage_members\n- :manage_versions\n- :add_subprojects\n- :manage_boards\n- :add_messages\n- :edit_messages\n- :edit_own_messages\n- :delete_messages\n- :delete_own_messages\n- :view_calendar\n- :add_documents\n- :edit_documents\n- :delete_documents\n- :view_documents\n- :manage_files\n- :view_files\n- :view_gantt\n- :manage_categories\n- :view_issues\n- :add_issues\n- :edit_issues\n- :manage_issue_relations\n- :manage_subtasks\n- :set_issues_private\n- :set_own_issues_private\n- :add_issue_notes\n- :edit_issue_notes\n- :edit_own_issue_notes\n- :view_private_notes\n- :set_notes_private\n- :move_issues\n- :delete_issues\n- :manage_public_queries\n- :save_queries\n- :view_issue_watchers\n- :add_issue_watchers\n- :delete_issue_watchers\n- :manage_news\n- :comment_news\n- :manage_repository\n- :browse_repository\n- :view_changesets\n- :commit_access\n- :manage_related_issues\n- :log_time\n- :view_time_entries\n- :edit_time_entries\n- :edit_own_time_entries\n- :manage_project_activities\n- :manage_wiki\n- :rename_wiki_pages\n- :delete_wiki_pages\n- :view_wiki_pages\n- :export_wiki_pages\n- :view_wiki_edits\n- :edit_wiki_pages\n- :delete_wiki_pages_attachments\n- :protect_wiki_pages\n','default');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1882,7 +1887,7 @@ CREATE TABLE `tokens` (
 
 LOCK TABLES `tokens` WRITE;
 /*!40000 ALTER TABLE `tokens` DISABLE KEYS */;
-INSERT INTO `tokens` VALUES (1,1,'feeds','0b1ca03bf31eee36bbcd395f1eebea26cc82dae0','2015-01-21 01:34:24');
+INSERT INTO `tokens` VALUES (1,1,'feeds','64e05526eaac273621e65ef8def7054b2194704b','2015-01-22 00:47:05');
 /*!40000 ALTER TABLE `tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1901,7 +1906,7 @@ CREATE TABLE `trackers` (
   `is_in_roadmap` tinyint(1) NOT NULL DEFAULT '1',
   `fields_bits` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1910,6 +1915,7 @@ CREATE TABLE `trackers` (
 
 LOCK TABLES `trackers` WRITE;
 /*!40000 ALTER TABLE `trackers` DISABLE KEYS */;
+INSERT INTO `trackers` VALUES (1,'Task',0,1,1,0);
 /*!40000 ALTER TABLE `trackers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1980,7 +1986,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','e6729b66bb76b19260635fa38fa3722018b42649','Redmine','Admin','admin@example.net',1,1,'2015-01-21 01:34:24','',NULL,'2015-01-21 01:31:00','2015-01-21 01:31:00','User',NULL,'all','be597a5819ea9f6798a206b7922ab73b',0),(2,'','','','Anonymous','',0,0,NULL,'',NULL,'2015-01-21 01:34:13','2015-01-21 01:34:13','AnonymousUser',NULL,'only_my_events',NULL,0);
+INSERT INTO `users` VALUES (1,'admin','88a9226ffd753daa77fb86bceb3ec71f8ab988d7','Redmine','Admin','admin@example.net',1,1,'2015-01-22 00:47:05','',NULL,'2015-01-22 00:38:54','2015-01-22 00:38:54','User',NULL,'all','b44d498f6fd9cf71eaa898d57684ef00',0),(2,'','','','Anonymous','',0,0,NULL,'',NULL,'2015-01-22 00:43:08','2015-01-22 00:43:08','AnonymousUser',NULL,'only_my_events',NULL,0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2244,4 +2250,4 @@ USE `test`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-21  1:35:50
+-- Dump completed on 2015-01-22  0:54:20
