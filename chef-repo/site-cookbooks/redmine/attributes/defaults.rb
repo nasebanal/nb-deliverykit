@@ -8,6 +8,7 @@ default['redmine']['working_dir'] = ::File.join(Chef::Config[:file_cache_path], 
 default['redmine']['install_dir'] = '/opt/redmine-2.5.0'
 default['redmine']['target_dir'] = '/opt/redmine'
 default['redmine']['config_dir'] = ::File.join(node['redmine']['install_dir'],'config')
+default['redmine']['plugin_dir'] = ::File.join(node['redmine']['install_dir'],'plugins')
 default['redmine']['httpdconf_dir'] = '/etc/httpd/conf.d'
 
 ## for file path
@@ -19,3 +20,5 @@ default['redmine']['passenger_conf'] = 'passenger.conf'
 default['redmine']['passenger_conf_path'] = ::File.join(node['redmine']['httpdconf_dir'], node['redmine']['passenger_conf'])
 default['redmine']['init_redmine'] = 'init_redmine.sql'
 default['redmine']['init_redmine_path'] = ::File.join(node['redmine']['working_dir'], node['redmine']['init_redmine'])
+default['redmine']['init_redmine_2'] = 'init_redmine_2.sql'
+default['redmine']['init_redmine_2_path'] = ::File.join(node['redmine']['working_dir'], node['redmine']['init_redmine_2'])

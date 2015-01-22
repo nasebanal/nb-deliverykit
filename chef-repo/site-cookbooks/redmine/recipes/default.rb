@@ -135,6 +135,40 @@ EOH
 end
 
 
+## Import csv importer
+
+bash 'import csv importer' do
+	user 'osdk_admin'
+	action :run
+	cwd node['redmine']['plugin_dir']
+	code <<-EOH
+source /etc/profile.d/rvm.sh
+git clone https://github.com/zh/redmine_importer.git
+cd redmine_importer
+rake redmine:plugins:migrate RAILS_ENV=production
+EOH
+end
+
+
+## Copy init redmine sql #2
+
+template node['redmine']['init_redmine_2_path'] do
+	source node['redmine']['init_redmine_2']
+	mode '0666'
+end
+
+
+## Import redmine data #2
+
+bash 'import redmine 2' do
+	action :run
+	cwd node['redmine']['working_dir']
+	code <<-EOH
+mysql -uroot --password='osdk_admin' < #{node['redmine']['init_redmine_2_path']}
+EOH
+end
+
+
 ## Copy passenger.conf
 
 template node['redmine']['passenger_conf_path'] do
