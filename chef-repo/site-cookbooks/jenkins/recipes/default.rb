@@ -29,3 +29,18 @@ end
 service 'jenkins' do
 	action [ :enable, :start ]
 end
+
+
+## Copy jenkins.conf
+
+template node['jenkins']['jenkins_conf_path'] do
+    source node['jenkins']['jenkins_conf']
+    mode '0666'
+end
+
+
+## Reload httpd.conf
+
+service 'httpd' do
+	action :reload
+end
