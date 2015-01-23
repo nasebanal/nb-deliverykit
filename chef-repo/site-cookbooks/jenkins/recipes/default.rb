@@ -24,6 +24,14 @@ package "jenkins" do
 end
 
 
+## Copy sysconfig
+
+template node['jenkins']['sysconfig_path'] do
+	source node['jenkins']['sysconfig']
+	mode '0666'
+end
+
+
 ## Start Jenkins
 
 service 'jenkins' do
