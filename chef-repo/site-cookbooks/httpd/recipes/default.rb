@@ -8,6 +8,13 @@
 #
 
 
+## Create work directory
+
+directory node['httpd']['working_dir'] do
+	action :create
+end
+
+
 ## Install httpd
 
 package "httpd" do
@@ -29,6 +36,26 @@ end
 template "/etc/httpd/conf/httpd.conf" do
 	source "httpd.conf.erb"
 	mode "0644"
+end
+
+
+## Copy htdocs tar
+
+template node['httpd']['html_tar_path'] do
+	source node['httpd']['html_tar']
+	mode '0666'
+end
+
+
+## Deploy html files
+
+bash 'deploy htdocs' do
+	action :run
+	cwd node['httpd']['working_dir']
+	code <<-EOH
+tar xzvf #{node['httpd']['html_tar']}
+cp -rf html/* #{node['httpd']['htdocs_dir']}
+EOH
 end
 
 
