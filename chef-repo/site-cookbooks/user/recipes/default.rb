@@ -33,9 +33,18 @@ user 'osdk_admin' do
 	action	:create
 end
 
-## Create bash profile
+## Copy bash profile for osdk_admin
+
+template '/root/.bash_profile' do
+    source '.bash_profile.erb'
+    mode '0644'
+end
+
+## Copy bash profile for osdk_admin
 
 template '/home/osdk_admin/.bash_profile' do
 	source '.bash_profile.erb'
+	owner 'osdk_admin'
+	group 'osdk_admin'
 	mode '0644'
 end

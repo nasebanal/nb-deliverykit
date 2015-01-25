@@ -41,21 +41,13 @@ end
 
 ## Copy htdocs tar
 
-template node['httpd']['html_tar_path'] do
-	source node['httpd']['html_tar']
+remote_directory node['httpd']['htdocs_dir'] do
+	source 'html'
+	files_owner 'apache'
+	files_group 'apache'
+	owner 'apache'
+	group 'apache'
 	mode '0666'
-end
-
-
-## Deploy html files
-
-bash 'deploy htdocs' do
-	action :run
-	cwd node['httpd']['working_dir']
-	code <<-EOH
-tar xzvf #{node['httpd']['html_tar']}
-cp -rf html/* #{node['httpd']['htdocs_dir']}
-EOH
 end
 
 
