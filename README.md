@@ -1,6 +1,6 @@
 # Open Source Delivery Kit
 
-## [Component]*
+[Component]
 * Cent OS 6.6
 * yum 3.5.2
 * which 2.19
@@ -17,10 +17,12 @@
 * Redmine 2.5.0
 * Jenkins 1.596
 
-## [Prerequisite]*
+
+[Prerequisite]
 * Install Docker
 
-## [How to Use]*
+
+[How to Use]
 
 Step.1) Download docker image for centos 6.6.
 
