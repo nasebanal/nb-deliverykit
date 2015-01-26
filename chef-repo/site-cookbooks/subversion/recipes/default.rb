@@ -54,8 +54,8 @@ bash "create repository" do
 	action :run
 	cwd node['subversion']['working_dir']
 	code <<-EOH
-svnadmin create /var/www/svn/sample
-chown -R apache:apache /var/www/svn/sample
+svnadmin create /var/www/svn/repo
+chown -R apache:apache /var/www/svn/repo
 EOH
 end
 

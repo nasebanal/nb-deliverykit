@@ -1769,7 +1769,7 @@ CREATE TABLE `repositories` (
 
 LOCK TABLES `repositories` WRITE;
 /*!40000 ALTER TABLE `repositories` DISABLE KEYS */;
-INSERT INTO `repositories` VALUES (1,1,'http://localhost/repos/sample','','','','Repository::Subversion',NULL,NULL,NULL,'',1,'2015-01-22 00:52:01');
+INSERT INTO `repositories` VALUES (1,1,'http://localhost/svn','','','','Repository::Subversion',NULL,NULL,NULL,'',1,'2015-01-22 00:52:01');
 /*!40000 ALTER TABLE `repositories` ENABLE KEYS */;
 UNLOCK TABLES;
 
