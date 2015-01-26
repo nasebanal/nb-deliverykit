@@ -20,7 +20,7 @@ end
 
 package "jenkins" do
 	action :upgrade
-	version "1.596"
+	version "1.596-1.1"
 end
 
 

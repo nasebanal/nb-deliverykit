@@ -35,7 +35,7 @@ end
 
 template "/etc/httpd/conf/httpd.conf" do
 	source "httpd.conf.erb"
-	mode "0644"
+	mode "0666"
 end
 
 
@@ -47,7 +47,7 @@ remote_directory node['httpd']['htdocs_dir'] do
 	files_group 'apache'
 	owner 'apache'
 	group 'apache'
-	mode '0666'
+	mode '0777'
 end
 
 
