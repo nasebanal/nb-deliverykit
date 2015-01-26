@@ -39,3 +39,17 @@ Step.3) Create docker image.
 Step.4) Launch docker image.
 
  $ sudo docker run -it --name \<Docker Container Name\> \<Docker Image Name\> /bin/bash
+
+Step.5) Start services.
+
+ # cd /var/chef-repo
+ # chef-solo -c solo.js -j node/start.js
+
+(If you want to restart services, execute the following command.)
+
+ # chef-solo -c solo.js -j node/restart.js
+
+Step.6) Apply additional package for methodology.
+
+(Sample Methodology Pack)
+https://github.com/nasebanal/nb-methodology
