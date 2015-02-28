@@ -39,7 +39,7 @@ Step.3) Create docker image.
 
 Step.4) Launch docker image.
 
-    $ sudo docker run -it --name \<Docker Container Name\> \<Docker Image Name\> /bin/bash
+    $ sudo docker run -p 0.0.0.0:80:80 -it --name \<Docker Container Name\> \<Docker Image Name\> /bin/bash
 
 Step.5) Start services.
 
