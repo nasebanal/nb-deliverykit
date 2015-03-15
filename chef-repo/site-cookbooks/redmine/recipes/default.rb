@@ -101,13 +101,23 @@ EOH
 end
 
 
+## Change mode
+
+file node['redmine']['install_passenger_path'] do
+	owner 'osdk_admin'
+	group 'osdk_admin'
+	mode '0777'
+end
+
+
 ## Install passenger
 
 bash 'install passenger' do
+	user 'osdk_admin'
 	action :run
 	cwd node['redmine']['working_dir']
 	code <<-EOH
-chmod 755 install_passenger.sh
+source /etc/profile.d/rvm.sh
 #{node['redmine']['install_passenger_path']} #{node['redmine']['passenger_params']}
 EOH
 end

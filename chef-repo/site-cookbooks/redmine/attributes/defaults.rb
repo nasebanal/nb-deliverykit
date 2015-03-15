@@ -14,7 +14,7 @@ default['redmine']['httpdconf_dir'] = '/etc/httpd/conf.d'
 ## for file path
 default['redmine']['db_yml'] = 'database.yml'
 default['redmine']['db_yml_path'] = ::File.join(node['redmine']['config_dir'],node['redmine']['db_yml'])
-default['redmine']['passenger_params'] = 'passenger_params.txt'
+default['redmine']['passenger_params'] = 'parameters.txt'
 default['redmine']['passenger_params_path'] = ::File.join(node['redmine']['working_dir'], node['redmine']['passenger_params'])
 default['redmine']['passenger_conf'] = 'passenger.conf'
 default['redmine']['passenger_conf_path'] = ::File.join(node['redmine']['httpdconf_dir'], node['redmine']['passenger_conf'])

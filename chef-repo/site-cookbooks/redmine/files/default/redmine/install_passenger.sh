@@ -35,7 +35,6 @@ echo "$LOG_HEADER	INSTALL_FLAG	= $INSTALL_FLAG"
 ## Install Passenger
 
 if [ ! -e $INSTALL_FLAG ]; then
-	passenger-install-apache2-module < $PARAMETER_FILE
-	touch $INSTALL_FLAG
+	passenger-install-apache2-module < $PARAMETER_FILE &> $INSTALL_FLAG
 fi
 
