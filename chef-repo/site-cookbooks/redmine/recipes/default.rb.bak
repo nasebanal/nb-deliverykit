@@ -42,9 +42,8 @@ end
 
 ## Ceate work directory
 
-remote_directory node['redmine']['working_dir'] do
-	source 'redmine'
-	mode '0777'
+directory node['redmine']['working_dir'] do
+	action :create
 end
 
 
@@ -85,6 +84,14 @@ template node['redmine']['db_yml_path'] do
 end
 
 
+## Copy passenger parameter file
+
+template node['redmine']['passenger_params_path'] do
+	source node['redmine']['passenger_params']
+	mode "0644"
+end
+
+
 ## Install Ruby gems
 
 bash 'install gems' do
@@ -97,18 +104,7 @@ bundle install
 bundle exec rake generate_secret_token
 RAILS_ENV=production bundle exec rake db:migrate
 gem install passenger --no-rdoc --no-ri -v 4.0.57
-EOH
-end
-
-
-## Install passenger
-
-bash 'install passenger' do
-	action :run
-	cwd node['redmine']['working_dir']
-	code <<-EOH
-chmod 755 install_passenger.sh
-#{node['redmine']['install_passenger_path']} #{node['redmine']['passenger_params']}
+passenger-install-apache2-module < #{node['redmine']['passenger_params_path']}
 EOH
 end
 

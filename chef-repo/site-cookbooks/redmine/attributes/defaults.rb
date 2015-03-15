@@ -22,3 +22,5 @@ default['redmine']['init_redmine'] = 'init_redmine.sql'
 default['redmine']['init_redmine_path'] = ::File.join(node['redmine']['working_dir'], node['redmine']['init_redmine'])
 default['redmine']['init_redmine_2'] = 'init_redmine_2.sql'
 default['redmine']['init_redmine_2_path'] = ::File.join(node['redmine']['working_dir'], node['redmine']['init_redmine_2'])
+default['redmine']['install_passenger'] = 'install_passenger.sh'
+default['redmine']['install_passenger_path'] = ::File.join(node['redmine']['working_dir'], node['redmine']['install_passenger'])
