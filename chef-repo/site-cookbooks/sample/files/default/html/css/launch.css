@@ -1,0 +1,45 @@
+/*======= Overall =======*/
+body{
+	background-color: #fff;
+}
+
+.phase{
+	height: 380px;
+	margin: 10px;
+	text-decoration:none;
+	position: absolute;
+}
+
+.task{
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+	background-color: #f88;
+    text-decoration:none;
+    position: absolute;
+}
+
+#launch{
+	width: 780px;
+	top: 100px;
+    left: 50px;
+	background-color: #f00;
+}
+
+#plan{
+	width: 80px;
+	top: 100px;
+    left: 850px;
+	background-color: #880;
+}
+
+#LC010{
+	top: 250px;
+	left: 100px;
+}
+
+#LC020{
+	top: 250px;
+	left: 250px;
+}
+

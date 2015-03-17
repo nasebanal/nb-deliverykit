@@ -1,0 +1,4 @@
+#,Project,Tracker,Parent task,Status,Priority,Subject,Author,Assignee,Updated,Category,Target version,Start date,Due date,Estimated time,Spent time,% Done,Created,Closed,Related issues,Private,Description
+,sample,Task,"",Opened,Normal,Create Project Charter,Redmine Admin,"",,"","",,"","",0,0,,"","",No,"Create Project Charter [source:trunk/sample/doc/010/010]"
+,sample,Task,"",Opened,Normal,Specify Stakeholder,Redmine Admin,"",,"","",,"","",0,0,,"","",No,"Specify Stakeholders [source:trunk/sample/doc/010/020]"
+,sample,Task,"",Opened,Normal,Create Project Plan,Redmine Admin,"",,"","",,"","",0,0,,"","",No,"Create Project Plan [source:trunk/sample/doc/020/010]"

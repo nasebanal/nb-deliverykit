@@ -1,0 +1,55 @@
+/*======= Overall =======*/
+body{
+	background-color: #fff;
+}
+
+.phase{
+	height: 380px;
+	margin: 10px;
+	text-decoration:none;
+	position: absolute;
+}
+
+.task{
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+	background-color: #dd8;
+    text-decoration:none;
+    position: absolute;
+}
+
+#launch{
+	width: 80px;
+	top: 100px;
+    left: 50px;
+	background-color: #f00;
+}
+
+#plan{
+	width: 780px;
+	top: 100px;
+    left: 150px;
+	background-color: #880;
+}
+
+#manage{
+	width: 80px;
+	height: 80px;
+	top: 100px;
+	left: 950px;
+	background-color: #0f0;
+}
+
+#analyze{
+	width: 80px;
+	height: 280px;
+	top: 200px;
+	left: 950px;
+	background-color: #00f;
+}
+
+#PL010{
+	top: 250px;
+	left: 200px;
+}
