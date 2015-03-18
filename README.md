@@ -50,7 +50,6 @@ Step.5) Start services.
 
     # chef-solo -c solo.js -j node/restart.js
 
-Step.6) Apply additional package for methodology.
+Step.6) Apply sample package for methodology.
 
-(Sample Methodology Pack)
-<https://github.com/nasebanal/nb-methodology>
+	# chef-solo -c solo.js -j node/sample.js
