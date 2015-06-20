@@ -23,6 +23,59 @@ package "openldap-clients" do
 end
 
 
+## Remove initial config files
+
+bash 'remove initial files' do
+	action :run
+	code <<-EOH
+rm -rf /etc/openldap/slapd.d/*
+rm -rf /var/lib/ldap/*
+EOH
+end
+
+
+## Create DB_CONFIG
+
+file "/var/lib/ldap/DB_CONFIG" do
+	owner 'ldap'
+	group 'ldap'
+	content IO.read("/usr/share/openldap-servers/DB_CONFIG.example")
+	action :create
+end
+
+
+## Create master password
+
+bash 'create password' do
+	action :run
+	code <<-EOH
+slappasswd -s osdk_admin
+EOH
+end
+
+
+## Create slapd.conf
+
+template "/etc/openldap/slapd.conf" do
+	owner 'ldap'
+	group 'ldap'
+	source "slapd.conf"
+	action :create
+end
+
+
+## 
+
+bash 'update slapd.d' do
+	user 'ldap'
+	action :run
+	code <<-EOH
+slaptest -f /etc/openldap/slapd.conf -F /etc/openldap/slapd.d
+echo
+EOH
+end
+
+
 ## Start slapd
 
 service "slapd" do
