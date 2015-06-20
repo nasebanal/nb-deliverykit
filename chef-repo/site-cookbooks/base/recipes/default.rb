@@ -34,6 +34,14 @@ package "which" do
 end
 
 
+## Install sudo
+
+package "sudo" do
+	action :upgrade
+	version "1.8.6"
+end
+
+
 ## Install git
 
 package "git" do

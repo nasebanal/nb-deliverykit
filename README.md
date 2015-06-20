@@ -5,6 +5,7 @@
 * yum 3.5.2
 * which 2.19
 * tar 1.23
+* sudo 1.8.6
 * ImageMagick 6.5.4.7
 * OpenJDK 1.7.0
 * RVM 1.26.9
