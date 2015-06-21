@@ -14,6 +14,13 @@ service "sshd" do
 end
 
 
+## Start slapd
+
+service "slapd" do
+	action :start
+end
+
+
 ## Start httpd
 
 service "httpd" do

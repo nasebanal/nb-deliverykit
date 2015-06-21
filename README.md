@@ -57,3 +57,11 @@ Step.5) Start services.
 Step.6) Apply sample package for methodology.
 
 	# chef-solo -c solo.js -j node/sample.js
+
+
+[Initial Password]
+
+OS ROOT User: root / root
+LDAP ROOT User: cn=Manager,dc=my-domain,dc=com / osdk_admin
+mySQL Admin User: root / osdk_admin
+Redmine Admin User: admin / admin
