@@ -39,15 +39,6 @@ template "/etc/httpd/conf.d/subversion.conf" do
 end
 
 
-## Copy svnserver.conf
-
-template "/var/www/svn/repo/conf/svnserve.conf" do
-	owner "apache"
-	group "apache"
-	source "svnserve.conf"
-end
-
-
 ## Create svn directory
 
 directory "/var/www/svn" do
@@ -66,6 +57,15 @@ bash "create repository" do
 svnadmin create /var/www/svn/repo
 chown -R apache:apache /var/www/svn/repo
 EOH
+end
+
+
+## Copy svnserver.conf
+
+template "/var/www/svn/repo/conf/svnserve.conf" do
+	owner "apache"
+	group "apache"
+	source "svnserve.conf"
 end
 
 
