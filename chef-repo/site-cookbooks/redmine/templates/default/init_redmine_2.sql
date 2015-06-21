@@ -771,7 +771,7 @@ CREATE TABLE `auth_sources` (
   `timeout` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_auth_sources_on_id_and_type` (`id`,`type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -780,6 +780,7 @@ CREATE TABLE `auth_sources` (
 
 LOCK TABLES `auth_sources` WRITE;
 /*!40000 ALTER TABLE `auth_sources` DISABLE KEYS */;
+INSERT INTO `auth_sources` VALUES (1,'AuthSourceLdap','ldap','localhost',389,'','','cn=Manager,dc=my-domain,dc=com','cn','sn','','',1,0,'',NULL);
 /*!40000 ALTER TABLE `auth_sources` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2014,7 +2015,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','88a9226ffd753daa77fb86bceb3ec71f8ab988d7','Redmine','Admin','admin@example.net',1,1,'2015-01-22 02:17:11','',NULL,'2015-01-22 00:38:54','2015-01-22 00:38:54','User',NULL,'all','b44d498f6fd9cf71eaa898d57684ef00',0),(2,'','','','Anonymous','',0,0,NULL,'',NULL,'2015-01-22 00:43:08','2015-01-22 00:43:08','AnonymousUser',NULL,'only_my_events',NULL,0);
+INSERT INTO `users` VALUES (1,'admin','88a9226ffd753daa77fb86bceb3ec71f8ab988d7','Redmine','Admin','admin@example.net',1,1,'2015-06-21 08:56:35','',NULL,'2015-01-22 00:38:54','2015-01-22 00:38:54','User',NULL,'all','b44d498f6fd9cf71eaa898d57684ef00',0),(2,'','','','Anonymous','',0,0,NULL,'',NULL,'2015-01-22 00:43:08','2015-01-22 00:43:08','AnonymousUser',NULL,'only_my_events',NULL,0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2278,4 +2279,4 @@ USE `test`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-22  2:18:34
+-- Dump completed on 2015-06-21 10:05:34
