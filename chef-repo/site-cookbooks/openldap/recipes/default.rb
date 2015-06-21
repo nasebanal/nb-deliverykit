@@ -36,21 +36,11 @@ end
 
 ## Create DB_CONFIG
 
-file "/var/lib/ldap/DB_CONFIG" do
+template "/var/lib/ldap/DB_CONFIG" do
 	owner 'ldap'
 	group 'ldap'
-	content IO.read("/usr/share/openldap-servers/DB_CONFIG.example")
+	source "DB_CONFIG"
 	action :create
-end
-
-
-## Create master password
-
-bash 'create password' do
-	action :run
-	code <<-EOH
-slappasswd -s osdk_admin
-EOH
 end
 
 
