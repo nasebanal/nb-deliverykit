@@ -8,6 +8,7 @@
 		"recipe[openssh-server]",
 		"recipe[openldap]",
 		"recipe[httpd]",
+		"recipe[phpldapadmin]",
 		"recipe[mysql-server]",
 		"recipe[subversion]",
 		"recipe[maven]",

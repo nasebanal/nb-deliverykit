@@ -15,3 +15,25 @@ package "phpldapadmin" do
 end
 
 
+## Copy apache conf file
+
+template "/etc/httpd/conf.d/phpldapadmin.conf" do
+	source "phpldapadmin.conf"
+end
+
+
+## Copy conf file
+
+template "/etc/phpldapadmin/config.php" do
+	owner 'apache'
+	group 'apache'
+	mode '0755'
+	source "config.php"
+end
+
+
+## Restart Apacher server
+
+service "httpd" do
+	action :reload
+end
