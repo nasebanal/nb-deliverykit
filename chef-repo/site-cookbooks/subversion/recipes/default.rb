@@ -39,6 +39,15 @@ template "/etc/httpd/conf.d/subversion.conf" do
 end
 
 
+## Copy svnserver.conf
+
+template "/var/www/svn/repo/conf/svnserve.conf" do
+	owner "apache"
+	group "apache"
+	source "svnserve.conf"
+end
+
+
 ## Create svn directory
 
 directory "/var/www/svn" do
