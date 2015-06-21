@@ -39,11 +39,22 @@ service 'jenkins' do
 end
 
 
-## Copy jenkins.conf
+## Copy jenkins.conf for apache server
 
 template node['jenkins']['jenkins_conf_path'] do
-    source node['jenkins']['jenkins_conf']
+	source node['jenkins']['jenkins_conf']
+	owner 'apache'
+	group 'apache'
     mode '0666'
+end
+
+
+## Copy conf file for Jenkins
+
+template "/var/lib/jenkins/config.xml" do
+	owner 'jenkins'
+	group 'jenkins'
+	source "config.xml"
 end
 
 
