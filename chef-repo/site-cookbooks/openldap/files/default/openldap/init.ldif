@@ -7,3 +7,11 @@ dc: my-domain
 dn: cn=Manager,dc=my-domain,dc=com
 objectclass: organizationalRole
 cn: Manager
+
+dn: ou=People,dc=my-domain,dc=com
+objectclass: organizationalUnit
+ou: People
+
+dn: ou=Services,dc=my-domain,dc=com
+objectclass: organizationalUnit
+ou: Services

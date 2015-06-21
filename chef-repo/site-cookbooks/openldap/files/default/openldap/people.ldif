@@ -1,0 +1,5 @@
+dn: cn=guest,ou=People,dc=my-domain,dc=com
+objectclass: Person
+cn: guest
+sn: Guest
+userPassword: guest

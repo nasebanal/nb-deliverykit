@@ -13,6 +13,7 @@
 * OpenSSH Server (sshd) 5.3
 * OpenLDAP Server (slap) 2.4.39
 * OpenLDAP Clients 2.4.39
+* PHP LDAP Admin 1.2.3
 * Apache Web Server (httpd / httpd-devel) 2.2.15
 * MySQL Server (mysql-server / mysql-devel) 5.1.73
 * Subversion 1.6.11

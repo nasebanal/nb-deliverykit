@@ -88,6 +88,7 @@ bash 'add init entries' do
 	action :run
 	code <<-EOH
 ldapadd -x -D "cn=Manager,dc=my-domain,dc=com" -w osdk_admin -f init.ldif
+ldapadd -x -D "cn=Manager,dc=my-domain,dc=com" -w osdk_admin -f people.ldif
 ldapsearch -x -b 'dc=my-domain,dc=com' '(objectclass=*)'
 EOH
 end
