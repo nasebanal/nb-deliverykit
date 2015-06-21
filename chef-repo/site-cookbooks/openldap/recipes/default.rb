@@ -7,6 +7,14 @@
 # All rights reserved - Do Not Redistribute
 #
 
+
+## Create working directory
+
+remote_directory node['openldap']['working_dir'] do
+	source 'openldap'
+end
+
+
 ## Install openldap-server
 
 package "openldap-servers" do
@@ -54,7 +62,7 @@ template "/etc/openldap/slapd.conf" do
 end
 
 
-## 
+## Update slapd.d
 
 bash 'update slapd.d' do
 	user 'ldap'
@@ -70,4 +78,16 @@ end
 
 service "slapd" do
 	action  [ :enable, :start ]
+end
+
+
+## Add initial entries
+
+bash 'add init entries' do
+	cwd node['openldap']['working_dir']
+	action :run
+	code <<-EOH
+ldapadd -x -D "cn=Manager,dc=my-domain,dc=com" -w osdk_admin -f init.ldif
+ldapsearch -x -b 'dc=my-domain,dc=com' '(objectclass=*)'
+EOH
 end
