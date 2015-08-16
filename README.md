@@ -72,7 +72,8 @@ Step.6) Apply sample package for methodology.
 
 	# chef-solo -c solo.js -j node/sample.js
 
-Step.7) Access to http://<IP Address>/
+Step.7) Access to http://\<IP Address\>/
+You can also access to phpldapadmin from http://\<IP Address\>/phpldapadmin/
 	
 
 [Initial Password]
