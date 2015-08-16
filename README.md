@@ -45,6 +45,10 @@ Step.4) Launch docker image.
 
     $ sudo docker run -p 0.0.0.0:80:80 -it --name \<Docker Container Name\> \<Docker Image Name\> /bin/bash
 
+	When you encounter error the following command may work.
+
+	$ sudo docker run -p 0.0.0.0:80:80 --priviledged -it --name \<Docker Container Name\> \<Docker Image Name\> /bin/bash
+
 Step.5) Start services.
 
     # cd /var/chef-repo
@@ -61,7 +65,7 @@ Step.6) Apply sample package for methodology.
 
 [Initial Password]
 
-OS ROOT User: root / root
-LDAP ROOT User: cn=Manager,dc=my-domain,dc=com / osdk_admin
-mySQL Admin User: root / osdk_admin
-Redmine Admin User: admin / admin
+* OS ROOT User: root / root
+* LDAP ROOT User: cn=Manager,dc=my-domain,dc=com / osdk_admin
+* mySQL Admin User: root / osdk_admin
+* Redmine Admin User: admin / admin
