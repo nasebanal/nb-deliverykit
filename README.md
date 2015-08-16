@@ -1,6 +1,10 @@
-# Open Source Delivery Kit
+# NASEBANAL Open Source Delivery Kit
+
+This is Chef Recipe to create a Docker Image for nb-deliverykit.
+You can down load it from https://hub.docker.com/r/syatsuzuka/nb-deliverykit/
 
 [Component]
+
 * Cent OS 6.6
 * yum 3.5.2
 * which 2.19
@@ -28,28 +32,34 @@
 
 [How to Use]
 
-Step.1) Download docker image for centos 6.6.
+Step.1) Prepare work directory.
 
-    $ sudo docker pull centos:6.6
+	$ mkdir <Work Directory>
 
- (reference)
+Step.2) Get Recipe.
+
+	$ cd <Work Directory>
+	$ git clone https://github.com/nasebanal/nb-deliverykit.git
+
+Step.3) Prepare Bae Docker Image
+
+	$ sudo docker pull centos:6.6
+
+(reference)
  https://registry.hub.docker.com/_/centos/
 
-Step.2) Download Dockerfile and Chef recipe.
 
-Step.3) Create docker image.
+Step.4) Create Docker Image
 
-    $ sudo docker build -t \<Docker Image Nam\> .
+	$ cd nb-deliverykit
+	$ sudo docker build -t <Docker Image Name> .
 
-Step.4) Launch docker image.
+Step.5) Launch docker image.
 
-    $ sudo docker run -p 0.0.0.0:80:80 -it --name \<Docker Container Name\> \<Docker Image Name\> /bin/bash
+    $ sudo docker run -p 0.0.0.0:80:80 --priviledged -it --name \<Docker Container Name\> \<Docker Image Name\> /bin/bash
 
-	When you encounter error the following command may work.
 
-	$ sudo docker run -p 0.0.0.0:80:80 --priviledged -it --name \<Docker Container Name\> \<Docker Image Name\> /bin/bash
-
-Step.5) Start services.
+Step.6) Start services.
 
     # cd /var/chef-repo
     # chef-solo -c solo.js -j node/start.js
@@ -62,6 +72,8 @@ Step.6) Apply sample package for methodology.
 
 	# chef-solo -c solo.js -j node/sample.js
 
+Step.7) Access to http://<IP Address>/
+	
 
 [Initial Password]
 
