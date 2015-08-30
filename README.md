@@ -27,6 +27,7 @@ You can down load it from https://hub.docker.com/r/syatsuzuka/nb-deliverykit/
 
 
 [Prerequisite]
+
 * Install Docker
 
 
@@ -41,25 +42,17 @@ Step.2) Get Recipe.
 	$ cd <Work Directory>
 	$ git clone https://github.com/nasebanal/nb-deliverykit.git
 
-Step.3) Prepare Bae Docker Image
-
-	$ sudo docker pull centos:6.6
-
-(reference)
- https://registry.hub.docker.com/_/centos/
-
-
-Step.4) Create Docker Image
+Step.3) Create Docker Image
 
 	$ cd nb-deliverykit
 	$ sudo docker build -t <Docker Image Name> .
 
-Step.5) Launch docker image.
+Step.4) Launch docker image.
 
     $ sudo docker run -p 0.0.0.0:80:80 --priviledged -it --name \<Docker Container Name\> \<Docker Image Name\> /bin/bash
 
 
-Step.6) Start services.
+Step.5) Start services.
 
     # cd /var/chef-repo
     # chef-solo -c solo.js -j node/start.js
